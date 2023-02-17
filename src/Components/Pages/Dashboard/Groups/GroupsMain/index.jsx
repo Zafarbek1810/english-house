@@ -38,17 +38,17 @@ const GroupsMain = ({ RefObj, setIsOpen }) => {
 
   useEffect(() => {
     setLoading(true);
-    AdminProvider.getAllGroup()
+    AdminProvider.getAllGroup(currentPage, 10)
       .then((res) => {
-        console.log(res);
-        setGroups(res.data);
-        setTotalElements(res.data)
+        console.log(res.data.data);
+        setGroups(res.data.data);
+        setTotalElements(res.data.recordsTotal);
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => setLoading(false));
-  }, [forRender]);
+  }, [forRender,currentPage]);
 
   useEffect(() => {
     AdminProvider.getAllCourse()
@@ -73,7 +73,7 @@ const GroupsMain = ({ RefObj, setIsOpen }) => {
 
   const onSubmitGroup = async (values) => {
     const body = {};
-    (body.groupName = values.groupName),
+    (body.name = values.name),
       (body.courseId = values.courseId?.value),
       (body.teacherId = values.teacherId?.value),
       console.log("body", body);
@@ -128,7 +128,7 @@ const GroupsMain = ({ RefObj, setIsOpen }) => {
   const handleEditGroup = (obj) => {
     setIsOpenModal(true);
     setEditing(obj);
-    setValue("groupName", obj.groupName);
+    setValue("groupName", obj.name);
     setValue("courseId", obj.courseName);
     setValue("teacherFirstName", obj.teacherFirstName);
   };
@@ -185,7 +185,7 @@ const GroupsMain = ({ RefObj, setIsOpen }) => {
                 groups.map((obj, index) => (
                   <tr key={index}>
                     <td style={{ width: "40%" }} className="col">
-                      {obj.groupName}
+                    {(currentPage-1)*10+index+1}. {obj.name}
                     </td>
                     <td style={{ width: "40%" }} className="col">
                       {obj.teacherFirstName} {obj.teacherLastName}

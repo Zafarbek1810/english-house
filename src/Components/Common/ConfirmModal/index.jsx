@@ -39,7 +39,7 @@ const Modals=()=>{
               <Input size="large"/>
             </div>
             <div className="input">
-              <label>Ta'rif<span>*</span></label>
+              <label>Ta&apos;rif<span>*</span></label>
               <Input size="large"/>
             </div>
           </div>
