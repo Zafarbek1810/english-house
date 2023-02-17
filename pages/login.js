@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import HomePage from '../src/Components/Pages/HomePage'
-import WithAuthComponent from  "../src/Hocs/PrivateRoute"
+import Login from '../src/Components/Pages/Login'
 
 export default function Home() {
   return (
@@ -10,9 +9,7 @@ export default function Home() {
         <meta name="description" content="English House" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <WithAuthComponent>
-         <HomePage/>
-      </WithAuthComponent>
+        <Login/>
 
     </div>
   )

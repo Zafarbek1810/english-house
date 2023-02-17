@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import HomePage from '../src/Components/Pages/HomePage'
-import WithAuthComponent from  "../src/Hocs/PrivateRoute"
+import HomePage from '../../src/Components/Pages/HomePage'
+import WithAuthComponent from '../../src/Hocs/PrivateRoute'
 
 export default function Home() {
   return (
