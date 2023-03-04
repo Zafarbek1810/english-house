@@ -90,7 +90,6 @@ const DashboardHeader = ({ RefObj, setIsOpen }) => {
   return (
     <DashboardHeaderWrapper>
       <div className="top">
-        <Container>
           <div className="wrap">
             <div className="left">English House</div>
             <div className="right">
@@ -98,7 +97,6 @@ const DashboardHeader = ({ RefObj, setIsOpen }) => {
               <button onClick={handleLogout}>Chiqish <LogOutSvg/></button>
             </div>
           </div>
-        </Container>
       </div>
       {/* <div className="content">
             <ul className="links_cont">

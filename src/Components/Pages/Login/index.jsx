@@ -31,11 +31,38 @@ const Login = () => {
   useEffect(() => {
     console.log(currentUser);
     console.log(isAuth);
-    console.log(isAuth);
     if (isAuth && currentUser) {
       switch (currentUser.roles) {
         case "ROLE_ADMIN": {
-          router.replace("/dashboard/teachers");
+          router.replace("/dashboard/groups");
+          break;
+        }
+        case "ROLE_TEACHER": {
+          router.replace("/dashboard/teacher/groups");
+          break;
+        }
+        case "ROLE_DIRECTOR": {
+          router.replace("/dashboard/reytingDirector");
+          break;
+        }
+        case "ROLE_SEO": {
+          router.replace("/dashboard/seoStatistika");
+          break;
+        }
+        case "ROLE_EDUCATION_DEPARTMENT": {
+          router.replace("/dashboard/eduStatistika");
+          break;
+        }
+        case "ROLE_SUNDAY_EVENT": {
+          router.replace("/dashboard/dash");
+          break;
+        }
+        case "ROLE_STUDENT": {
+          router.replace("/dashboard/reyting");
+          break;
+        }
+        case "ROLE_ADDITION_LESSON": {
+          router.replace("/dashboard/addition");
           break;
         }
       }
@@ -47,16 +74,11 @@ const Login = () => {
     setLoading(true);
     AuthProvider.login(body)
       .then(({ data }) => {
-        console.log("data", data.token);
         localStorage.setItem("token", data.token);
         loginContext(data);
       })
       .catch((err) => {
-        console.log(err.response);
-        if (err?.response?.status === 401) {
           toast.error("Login yoki parol noto'g'ri!");
-        }
-        toast.error(err);
       })
       .finally(() => {
         setLoading(false);

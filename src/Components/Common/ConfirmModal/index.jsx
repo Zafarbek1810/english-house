@@ -1,61 +1,83 @@
-import React, {useContext} from 'react';
-import Modal from 'react-modal';
+import React, { useContext } from "react";
+import Modal from "react-modal";
 import ModalContext from "../../../Context/ModalContext";
-import {ModalContent, ModalFooter, ModalHeader} from "./style";
-import {Input} from "antd";
+import { ModalContent, ModalFooter, ModalHeader } from "./style";
+import { Input } from "antd";
+import { Button } from "@mui/material";
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
     minHeight: 200,
     maxWidth: 400,
-    transform: 'translate(-50%, -50%)',
+    transform: "translate(-50%, -50%)",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    borderRadius: 8
+    borderRadius: 8,
   },
 };
 
-Modal.setAppElement('#__next');
+Modal.setAppElement("#__next");
 
-const Modals=()=>{
-  return(
-    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1"
-         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+const Modals = () => {
+  return (
+    <div
+      className="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabIndex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
-            <h1 className="modal-title fs-5" id="staticBackdropLabel">Barcha mijozlarga push-xabarnoma yuborish</h1>
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+            <h1 className="modal-title fs-5" id="staticBackdropLabel">
+              Barcha mijozlarga push-xabarnoma yuborish
+            </h1>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            />
           </div>
           <div className="modal-body">
             <div className="input">
-              <label>Nomi<span>*</span></label>
-              <Input size="large"/>
+              <label>
+                Nomi<span>*</span>
+              </label>
+              <Input size="large" />
             </div>
             <div className="input">
-              <label>Ta&apos;rif<span>*</span></label>
-              <Input size="large"/>
+              <label>
+                Ta&apos;rif<span>*</span>
+              </label>
+              <Input size="large" />
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-outline-warning" data-bs-dismiss="modal">Bekor qilish</button>
-            <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Yuborish</button>
+            <Button type="button" data-bs-dismiss="modal">
+              Bekor qilish
+            </Button>
+            <Button type="button" data-bs-dismiss="modal">
+              Yuborish
+            </Button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-const ConfirmModal = ({children}) => {
-  const {RefObj, setIsOpen, modalIsOpen} = useContext(ModalContext);
+const ConfirmModal = ({ children }) => {
+  const { RefObj, setIsOpen, modalIsOpen } = useContext(ModalContext);
 
   function ResolveAndClose() {
     RefObj.current.resolve();
@@ -72,18 +94,23 @@ const ConfirmModal = ({children}) => {
       isOpen={modalIsOpen}
       onRequestClose={RejectAndClose}
       style={customStyles}
-
     >
       <ModalHeader>
-        <h1 className="modal-title fs-5" id="staticBackdropLabel">Chiqish</h1>
-        <button type="button"  onClick={RejectAndClose} className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+        <h1 className="modal-title fs-5" id="staticBackdropLabel">
+          Chiqish
+        </h1>
+        <button
+          type="button"
+          onClick={RejectAndClose}
+          className="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        />
       </ModalHeader>
       <ModalContent>
-        <p className="text">
-          {children}
-        </p>
+        <p className="text">{children}</p>
       </ModalContent>
-      <ModalFooter  className="modal-footer">
+      <ModalFooter className="modal-footer">
         {/*<button*/}
         {/*  onClick={RejectAndClose}*/}
         {/*  type="button"*/}
@@ -96,8 +123,25 @@ const ConfirmModal = ({children}) => {
         {/*>*/}
         {/*  Tasdiqlash*/}
         {/*</button>*/}
-          <button type="button" onClick={RejectAndClose} className="btn btn-outline-warning" data-bs-dismiss="modal">Bekor qilish</button>
-          <button type="button" onClick={ResolveAndClose} className="btn btn-primary" data-bs-dismiss="modal">Tasdiqlash</button>
+        <Button type="button" onClick={RejectAndClose} data-bs-dismiss="modal" variant="contained"
+        style={{
+          fontFamily: "Azo sans",
+          color: "#fff",
+          background: "#006786",
+          marginRight:10
+        }}
+        >
+          Bekor qilish
+        </Button>
+        <Button type="button" onClick={ResolveAndClose} data-bs-dismiss="modal" variant="contained"
+        style={{
+          fontFamily: "Azo sans",
+          color: "#fff",
+          background: "#006786",
+        }}
+        >
+          Tasdiqlash
+        </Button>
       </ModalFooter>
     </Modal>
   );

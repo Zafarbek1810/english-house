@@ -3,6 +3,7 @@ import styled from "styled-components";
 const DashboardHeaderWrapper = styled.div`
   background: #f5f5f5;
   .top {
+    padding: 10px 30px;
   }
   .wrap {
     display: flex;

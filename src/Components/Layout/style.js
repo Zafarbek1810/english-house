@@ -5,7 +5,7 @@ display: flex;
 
   .layout__sidebar {
     flex-shrink: 0;
-    width: 250px;
+    width: 120px;
     border-right: 1px solid rgba(31, 60, 136, 0.2);
   /* box-shadow: 0 1px 15px rgb(0 0 0 / 4%), 0 1px 6px rgb(0 0 0 / 14%); */
 
@@ -15,8 +15,8 @@ display: flex;
     border-bottom: 1px solid rgba(31, 60, 136, 0.2);
     position: absolute;
     top: 0;
-    left: 250px;
-    width: calc(100% - 250px);
+    left: 120px;
+    width: calc(100% - 120px);
   /* box-shadow: 0 1px 15px rgb(0 0 0 / 4%), 0 1px 6px rgb(0 0 0 / 14%); */
   
 

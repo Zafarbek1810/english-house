@@ -4,12 +4,23 @@ import '../styles/globals.css'
 import { GlobalStyle } from '../styles/globalStyle'
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useLayoutEffect, useState } from 'react';
+import Loader from "../src/Components/Common/Loader"
 
 function MyApp({ Component, pageProps }) {
+  const [loading, setLoading] = useState(true)
+
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+  }, [])
+
   return (
     <>
     <UserContextProvider>
       <Component {...pageProps} />
+      {loading && <Loader/>}
       <ToastContainer
             position="top-right"
             autoClose={3000}

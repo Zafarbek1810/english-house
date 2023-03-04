@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Courses from '../../src/Components/Pages/Dashboard/Courses'
+import Courses from '../../src/Components/Pages/Dashboard/Director/Courses'
 import WithAuthComponent from '../../src/Hocs/PrivateRoute'
 
 export default function Home() {

@@ -47,6 +47,12 @@ const SidebarWrapper = styled.div`
       position: relative;
       overflow: hidden;
       z-index: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 0;
       &:after {
         content: "";
         position: absolute;
@@ -89,6 +95,7 @@ const SidebarWrapper = styled.div`
       margin-right: 8px;
       width: 25px;
       height: 25px;
+      margin-bottom: 7px;
     }
     .activelink {
       padding: 10px;
@@ -106,6 +113,12 @@ const SidebarWrapper = styled.div`
       position: relative;
       overflow: hidden;
       z-index: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 0;
       &:after {
         content: "";
         position: absolute;

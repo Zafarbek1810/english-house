@@ -16,8 +16,8 @@ export default class AdminProvider {
     static async deleteTeacher(id) {
         return await client.delete(`/admin/delete/user/${id}`);
     }
-    static async updateTeacher(id, body) {
-        return await client.put(`/admin/update/user/${id}`, body);
+    static async updateTeacher(body) {
+        return await client.put(`/admin/update/user`, body);
     }
 
 
@@ -25,14 +25,26 @@ export default class AdminProvider {
     static async createGroup(body) {
         return await client.post("/admin/create/group", body);
     }
+    static async addStudentGroup(groupId = 0, studentId = 0) {
+        return await client.post(`/admin/student/add/group?groupId=${groupId}&studentId=${studentId}`);
+    }
+    static async deleteStudentGroup(groupId = 0, studentId = 0) {
+        return await client.delete(`/admin/student/delete/group?groupId=${groupId}&studentId=${studentId}`);
+    }
     static async getAllGroup(page = 0, size = 10) {
         return await client.get(`/admin/get/groups?pageNum=${page}&pageSize=${size}`);
+    }
+    static async getOneGroup(id) {
+        return await client.get(`/admin/student/get/${id}`);
+    }
+    static async getOneGroupInfo(id) {
+        return await client.get(`/admin/get/group/info/${id}`);
     }
     static async deleteGroup(id) {
         return await client.delete(`/admin/delete/group/${id}`);
     }
-    static async updateGroup(id) {
-        return await client.post(`/admin/update/group/${id}`);
+    static async updateGroup(id, body) {
+        return await client.put(`/admin/update/group/${id}`, body);
     }
 
 
@@ -46,8 +58,8 @@ export default class AdminProvider {
     static async deleteStudent(id) {
         return await client.delete(`/admin/delete/user/${id}`);
     }
-    static async updateStudent(id) {
-        return await client.post(`/admin/update/user/${id}`);
+    static async updateStudent(body) {
+        return await client.put(`/admin/update/student`, body);
     }
 
 

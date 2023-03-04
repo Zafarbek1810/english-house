@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Groups from '../../src/Components/Pages/Dashboard/Groups'
+import Groups from '../../src/Components/Pages/Dashboard/Admin/Groups'
 import WithAuthComponent from '../../src/Hocs/PrivateRoute'
 
 export default function Home() {
